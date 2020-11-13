@@ -16,6 +16,9 @@ const store = () => new Vuex.Store({
       const res = await this.$axios.get('/geo/menu')
       const { menu } = res.data
       commit('home/setMenu', menu)
+
+      const { data } = await app.$axios.get('/geo/getPosition')
+      commit('geo/setPosition', data)
     }
   }
 
